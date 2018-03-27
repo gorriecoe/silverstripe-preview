@@ -1,0 +1,8 @@
+---
+Name: previewconfig
+Only:
+  moduleexists: 'silverstripe/cms'
+---
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - gorriecoe\Preview\Extensions\Previewable

@@ -1,0 +1,25 @@
+{
+  "name": "gorriecoe/silverstripe-preview",
+  "description": "Adds a preview options to a Dataobject.",
+  "type": "silverstripe-vendormodule",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Gorrie Coe",
+      "email": "gorriecoe@gmail.com"
+    }
+  ],
+  "keywords": [
+    "silverstripe",
+    "modular"
+  ],
+  "homepage": "http://github.com/gorriecoe/silverstripe-preview",
+  "require":
+  {
+    "silverstripe/framework": "^4",
+    "gorriecoe/silverstripe-links": "^1.0"
+  },
+  "extra": {
+    "installer-name": "preview"
+  }
+}

@@ -141,4 +141,20 @@ class Preview extends ViewableData
     {
         return $this->getValue('label');
     }
+
+    /**
+     * @return String
+     */
+    public function getLinkURL()
+    {
+        return $this->owner->Link();
+    }
+
+    /**
+     * @return String
+     */
+    public function getLink()
+    {
+        return $this->owner->Link();
+    }
 }

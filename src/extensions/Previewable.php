@@ -38,6 +38,14 @@ class Previewable extends DataExtension
     ];
 
     /**
+     * Relationship version ownership
+     * @var array
+     */
+    private static $owns = [
+        'PreviewImage'
+    ];
+
+    /**
      * Define the default values for all the $db fields
      * @var array
      */

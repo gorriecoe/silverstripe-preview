@@ -49,6 +49,9 @@ class Preview extends ViewableData
      */
     public function __get($name)
     {
+        if (in_array($name, ['Link', 'LinkURL'])) {
+            return $this->owner->Link();
+        }
         if (isset($this->fields[$name])) {
             foreach (array_reverse($this->fields[$name]) as $key => $fieldgroup) {
                 if (isset($fieldgroup['fields'])) {
@@ -68,21 +71,5 @@ class Preview extends ViewableData
         } else {
             return $this->owner->getField($name);
         }
-    }
-
-    /**
-     * @return String
-     */
-    public function getLinkURL()
-    {
-        return $this->owner->Link();
-    }
-
-    /**
-     * @return String
-     */
-    public function getLink()
-    {
-        return $this->owner->Link();
     }
 }

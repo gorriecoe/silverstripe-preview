@@ -25,7 +25,7 @@ class Previewable extends DataExtension
      */
     private static $db = [
         'PreviewTitle' => 'Text',
-        'PreviewSummary' => 'Text',
+        'PreviewContent' => 'Text',
         'PreviewLabel' => 'Varchar(255)'
     ];
 
@@ -63,12 +63,12 @@ class Previewable extends DataExtension
         $fields->removeByName([
             'PreviewTitle',
             'PreviewImage',
-            'PreviewSummary',
+            'PreviewContent',
             'PreviewLabel'
         ]);
 
         $fields->addFieldsToTab(
-            'Root.Preview',
+            'Root.Summary',
             array(
                 UploadField::create(
                     'PreviewImage',
@@ -79,8 +79,8 @@ class Previewable extends DataExtension
                     _t(__CLASS__ . '.TITLE', 'Title')
                 ),
                 TextareaField::create(
-                    'PreviewSummary',
-                    _t(__CLASS__ . '.SUMMARY', 'Summary')
+                    'PreviewContent',
+                    _t(__CLASS__ . '.CONTENT', 'Content')
                 )
                 ->setRows(3),
                 TextField::create(
@@ -90,7 +90,7 @@ class Previewable extends DataExtension
             )
         );
 
-        $fields->fieldByName('Root.Preview')->setTitle(_t(__CLASS__ . '.TABLABEL', 'Preview Content'));
+        $fields->fieldByName('Root.Summary')->setTitle(_t(__CLASS__ . '.TABLABEL', 'Summary'));
 
         return $fields;
     }
@@ -98,11 +98,11 @@ class Previewable extends DataExtension
     public function getPreview()
     {
         $config = $this->owner->config();
-        $preview = Preview::create($this->owner)
-            ->setImage($config->get('preview_image') ? : 'PreviewImage')
-            ->setTitle($config->get('preview_title') ? : ['PreviewTitle','MenuTitle','Title'])
-            ->setSummary($config->get('preview_summary') ? : ['PreviewSummary','Content'])
-            ->setLabel($config->get('preview_label') ? : 'PreviewLabel');
+        $preview = Preview::create($this->owner);
+        $preview->Image = $config->get('preview_image') ? : 'PreviewImage';
+        $preview->Title = $config->get('preview_title') ? : ['PreviewTitle','MenuTitle','Title'];
+        $preview->Content = $config->get('preview_content') ? : ['PreviewContent','Content'];
+        $preview->Label = $config->get('preview_label') ? : 'PreviewLabel';
         return $preview;
     }
 }

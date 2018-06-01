@@ -4,11 +4,11 @@ namespace gorriecoe\Preview\View;
 
 use SilverStripe\View\ViewableData;
 
- /**
-  * Preview
-  *
-  * @package silverstripe-preview
-  */
+/**
+ * Preview
+ *
+ * @package silverstripe-preview
+ */
 class Preview extends ViewableData
 {
     protected $owner = null;
@@ -32,26 +32,25 @@ class Preview extends ViewableData
 
     /**
      * @param array $value
-     * @return Preview $this
      */
-    public function setValue($field, $value = [], $owner)
+    public function __set($name, $value = [])
     {
-        if (!isset($this->fields[$field])) {
-            $this->fields[$field] = [];
+        if (!isset($this->fields[$name])) {
+            $this->fields[$name] = [];
         }
-        $this->fields[$field][] = [
+        $this->fields[$name][] = [
             'fields' => is_array($value) ? $value : [$value],
-            'owner' => $owner ? $owner : $this->owner
+            'owner' => $this->owner
         ];
     }
 
     /**
-     * @return String
+     * @return Mixed
      */
-    public function getValue($field)
+    public function __get($name)
     {
-        if (isset($this->fields[$field])) {
-            foreach (array_reverse($this->fields[$field]) as $key => $fieldgroup) {
+        if (isset($this->fields[$name])) {
+            foreach (array_reverse($this->fields[$name]) as $key => $fieldgroup) {
                 if (isset($fieldgroup['fields'])) {
                     foreach ($fieldgroup['fields'] as $fieldgroupKey => $fieldgroupValue) {
                         if ($value = $fieldgroup['owner']->relField($fieldgroupValue)) {
@@ -62,84 +61,13 @@ class Preview extends ViewableData
                             } else {
                                 return $value;
                             }
-
                         }
                     }
                 }
             }
+        } else {
+            return $this->owner->getField($name);
         }
-    }
-
-    /**
-     * @param array $value
-     * @return Preview $this
-     */
-    public function setImage($value = [], $owner = null)
-    {
-        $this->setValue('image', $value, $owner);
-        return $this;
-    }
-
-    /**
-     * @return Image
-     */
-    public function getImage()
-    {
-        return $this->getValue('image');
-    }
-
-    /**
-     * @param array $value
-     * @return Preview $this
-     */
-    public function setTitle($value = [], $owner = null)
-    {
-        $this->setValue('title', $value, $owner);
-        return $this;
-    }
-
-    /**
-     * @return String
-     */
-    public function getTitle()
-    {
-        return $this->getValue('title');
-    }
-
-    /**
-     * @param array $value
-     * @return Preview $this
-     */
-    public function setSummary($value = [], $owner = null)
-    {
-        $this->setValue('summary', $value, $owner);
-        return $this;
-    }
-
-    /**
-     * @return String
-     */
-    public function getSummary()
-    {
-        return $this->getValue('summary');
-    }
-
-    /**
-     * @param array $value
-     * @return Preview $this
-     */
-    public function setLabel($value = [], $owner = null)
-    {
-        $this->setValue('label', $value, $owner);
-        return $this;
-    }
-
-    /**
-     * @return String
-     */
-    public function getLabel()
-    {
-        return $this->getValue('label');
     }
 
     /**

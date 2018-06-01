@@ -1,0 +1,7 @@
+en:
+  gorriecoe\Preview\Extensions\Previewable:
+    IMAGE: Image
+    LABEL: Label
+    CONTENT: Content
+    TABLABEL: Summary
+    TITLE: Title

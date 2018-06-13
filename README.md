@@ -24,8 +24,9 @@ MyDataObject:
   extensions:
     - gorriecoe\Preview\Extensions\Previewable
 ```
-Note that automatically extends SiteTree
+Note Previewable that automatically extends SiteTree
 
+### Default preview fields
 Adding default fields to a DataObject or SiteTree
 
 ```yml
@@ -33,6 +34,7 @@ SilverStripe\CMS\Model\SiteTree:
   extensions:
     - gorriecoe\Preview\Extensions\PreviewDefaultFields
 ```
+This will add Image, Title, Content and Label fields to a summary tab.
 
 ### Defining your own preview data
 By default preview data will inherit from the dataobject.  For example `$MyDataObject.Preview.Image` will use `$MyDataObject.Image`.

@@ -24,7 +24,7 @@ MyDataObject:
   extensions:
     - gorriecoe\Preview\Extensions\Previewable
 ```
-Note Previewable that automatically extends SiteTree
+Note that Previewable automatically extends SiteTree
 
 ### Default preview fields
 Adding default fields to a DataObject or SiteTree

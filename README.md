@@ -40,8 +40,8 @@ SilverStripe\CMS\Model\SiteTree:
 This will add Image, Title, Content and Label fields to a summary tab.
 
 ### Defining your own preview data
-By default preview data will inherit from the dataobject.  For example `$MyDataObject.Preview.Image` will use `$MyDataObject.Image`.
-However if you want the preview image to have fallback options you can define it in your dataobject with the following static variable define.
+By default preview data will inherit from the DataObject.  For example `$MyDataObject.Preview.Image` will use `$MyDataObject.Image`.
+However if you want the preview image to have fallback options, you can define it in your DataObject with the following static variable define.
 
 ```php
 class MyDataObject extends DataObject

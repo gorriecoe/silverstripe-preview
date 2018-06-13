@@ -22,19 +22,14 @@ class Preview extends ViewableData
     }
 
     /**
-     * @param DataObject $owner
-     */
-    public function setOwner($owner)
-    {
-        $this->owner = $owner;
-        return $this;
-    }
-
-    /**
      * @param array $value
      */
     public function __set($name, $value = [])
     {
+        if ($name == 'Owner') {
+            $this->owner = $value;
+            return $this;
+        }
         if (!isset($this->fields[$name])) {
             $this->fields[$name] = [];
         }

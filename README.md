@@ -80,3 +80,6 @@ Access preview data via template simply change the scope of the data using one o
     <% end_with %>
 <% end_loop %>
 ```
+
+### Advanced Usage
+Check out [silverstripe/silverstripe-action](https://github.com/gorriecoe/silverstripe-action) code for an example of advanced usage.  In it you will see you can prepend additional fallback options from another dataobject.

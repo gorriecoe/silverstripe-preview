@@ -13,11 +13,14 @@ class Preview extends ViewableData
 {
     protected $owner = null;
 
+    protected $in_relation_to = null;
+
     protected $fields = [];
 
     public function __construct($owner)
     {
         $this->owner = $owner;
+        $this->in_relation_to = $owner;
         parent::__construct($owner);
     }
 
@@ -29,13 +32,16 @@ class Preview extends ViewableData
         if ($name == 'Owner') {
             $this->owner = $value;
             return $this;
+        } elseif ($name == 'InRelationTo') {
+            $this->in_relation_to = $value;
+            return $this;
         }
         if (!isset($this->fields[$name])) {
             $this->fields[$name] = [];
         }
         $this->fields[$name][] = [
             'fields' => is_array($value) ? $value : [$value],
-            'owner' => $this->owner
+            'in_relation_to' => $this->in_relation_to
         ];
     }
 
@@ -51,7 +57,7 @@ class Preview extends ViewableData
             foreach (array_reverse($this->fields[$name]) as $key => $fieldgroup) {
                 if (isset($fieldgroup['fields'])) {
                     foreach ($fieldgroup['fields'] as $fieldgroupKey => $fieldgroupValue) {
-                        if ($value = $fieldgroup['owner']->relField($fieldgroupValue)) {
+                        if ($value = $fieldgroup['in_relation_to']->relField($fieldgroupValue)) {
                             if (is_object($value)) {
                                 if ($value->exists()) {
                                     return $value;

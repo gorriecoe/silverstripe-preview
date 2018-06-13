@@ -10,7 +10,10 @@ composer require gorriecoe/silverstripe-preview
 ## Requirements
 
 - silverstripe/cms ^4.0
-- gorriecoe/silverstripe-link ^1.0
+
+## Suggestion
+
+- [silverstripe/silverstripe-action](https://github.com/gorriecoe/silverstripe-action)
 
 ## Maintainers
 

@@ -16,8 +16,7 @@
   "homepage": "http://github.com/gorriecoe/silverstripe-preview",
   "require":
   {
-    "silverstripe/framework": "^4",
-    "gorriecoe/silverstripe-link": "^1.0"
+    "silverstripe/framework": "^4"
   },
   "extra": {
     "installer-name": "preview"

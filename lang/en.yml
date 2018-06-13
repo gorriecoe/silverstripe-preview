@@ -1,5 +1,5 @@
 en:
-  gorriecoe\Preview\Extensions\Previewable:
+  gorriecoe\Preview\Extensions\PreviewDefaultFields:
     IMAGE: Image
     LABEL: Label
     CONTENT: Content

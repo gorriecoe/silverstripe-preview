@@ -1,5 +1,5 @@
 # Silverstripe preview
-Adds a preview options to a Dataobject or SiteTree.  Basically provides more advanced options to summary content.
+Adds preview options to a Dataobject or SiteTree.  Basically provides more advanced options to summary content.
 
 ## Installation
 Composer is the recommended way of installing SilverStripe modules.

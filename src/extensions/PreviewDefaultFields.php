@@ -60,8 +60,8 @@ class PreviewDefaultFields extends DataExtension
             'Title'
         ],
         'Content' => [
-            'PreviewContent',
-            'Content'
+            'PreviewContent.Plain',
+            'Content.Plain'
         ],
         'Label' => 'PreviewLabel',
     ];
